@@ -78,6 +78,27 @@ validateNumber1();
 // vi gi pustiv i dvete.  THX :)
 
 //------------------HOMEWORK PART 3-----------------------
+// Write a JavaScript program to read ten array values, determine the largest value, and print it
+console.log(`-------Homework part 3--------`);
+let tenValueArray = [5, 19, 6, 34, 21, 7, 16, 26, 10, 35]
+
+for (let i = 0;  i <= tenValueArray.length - 1; i++) {
+    if(Math.max(...tenValueArray) != tenValueArray[i]) continue;
+    console.log(`The biggest number is ${tenValueArray[i]}`)
+}
+
+//i ova go najdov kako resenie ama so gotova funkcija ama nadvor od loopot pa mislam deka
+//resenieto sto go barate treba da e gornoto za koe mi trebase mn poveke zamaranje od ova dole :)
+// console.log(Math.max(...tenValueArray)); 
+
+
+//------------------HOMEWORK PART 4-----------------------
 // Write a JavaScript program that will read in a number and write out its digits
 
-console.log(`-------Homework part 3--------`);
+console.log(`-------Homework part 4--------`);
+
+// let number = parseInt(prompt(`Please type any number`));
+// let splittedNumber = [];
+
+// for (i = 0, 
+// console.log(number);
