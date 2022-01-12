@@ -86,17 +86,15 @@ function recipeMaker(recipeName) {
     if(typeof nameOfRecipe !== 'string' || nameOfRecipe.length === 0) {
         return alert('Please enter Valid name with letters only')
     }
+    let theTable = document.getElementById("tabela")
+    theTable.style.borderWidth = "2px"
+    theTable.style.borderStyle = "solid"
+    theTable.style.bordercolor = "black"
     theMainBody.innerHTML += `<div id="recipeDiv">Name of the  meal recipe: ${nameOfRecipe}</div>`
-    // ovde tabelata
-    // theMainBody.innerHTML += `<div id="tableDiv">Table</div>`
-    // let mainTable = document.querySelector("#tableDiv");
-    // console.log(mainTable)
-    // mainTable.innerHTML += `<tr id="mainRow"></tr>`
-    // let mainRow = document.querySelector("#mainRow");
-    // console.log(mainRow)
-    // mainRow.innerHTML += `<td id="mainData">the table</td>`
-    // let mainTd = document.querySelector("#mainData");
-    // console.log(mainTd)
+    let tableOfRecipe = document.getElementById("tableRow")
+    let tableOfRecipe2 = document.getElementById("tableRow2")
+    tableOfRecipe.innerHTML += `<tr><td style="border:2px solid red;">Name of the meal Recipe</td></tr>`
+    tableOfRecipe2.innerHTML += `<td style="color: purple;">${nameOfRecipe}</td>`
     let recipe = document.getElementById("recipeDiv");
     let NumOfIngredients = parseInt(prompt('Pls write how many ingredients the recipe needs'));
     if(isNaN(NumOfIngredients)) {
@@ -105,6 +103,8 @@ function recipeMaker(recipeName) {
     for(let i = 0; i < NumOfIngredients; i++) {
         let nameOfIngridients = prompt('Pls write the name of every ingridient');
         recipe.innerHTML += `<ul>Ingridient${([i + 1])}: ${nameOfIngridients}</ul>`
+        tableOfRecipe.innerHTML += `<td style="border:2px solid red;">Ingridient${([i + 1])}</td>`
+        tableOfRecipe2.innerHTML += `<td style="color: purple;">${nameOfIngridients}</td>`
     }
 }
 
