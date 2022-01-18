@@ -9,7 +9,9 @@
 
 $(document).ready(function () {
     let greetInput = $("#input1");
+    greetInput.css("background-color", "yellow", 'color', 'red')
     let button1 = $("#button1");
+    button1.css("background-color", "red", 'color', 'white')
 
     button1.click(function () {
         let inputValue = greetInput[0].value;
@@ -27,8 +29,11 @@ $(document).ready(function () {
     // You must use JQuery to complete the task
 
     let textInput = $(`#textInput`);
+    textInput.css("background-color", "yellow", 'color', 'red')
     let colorInput = $(`#colorInput`);
+    colorInput.css("background-color", "yellow", 'color', 'red')
     let generatorBtn = $(`#buttonGenerator`);
+    generatorBtn.css("background-color", "green", 'color', 'red')
 
     let isEmptyInput = function(input) {
         if (input == "") {

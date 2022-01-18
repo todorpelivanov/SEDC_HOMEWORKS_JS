@@ -45,7 +45,7 @@ function createObject(bookName1, authorName1, hasRead1){
     this.authorName = authorName1;
     this.readingStatus = hasRead1
     this.printReadStatus = function(readStatus) {
-        if(readStatus === 'yes') {
+        if(hasRead.checked == true) {
             console.log(`Already read '${this.bookName}' by '${this.authorName}'`)
         } else {
             console.log(`You still need to read '${this.bookName}' by '${this.authorName}'`)
