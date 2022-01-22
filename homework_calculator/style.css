@@ -1,0 +1,21 @@
+
+
+#container {
+    width: 500px;
+    height:700px;
+    background-color:rgba(0, 0, 0, 0.685);
+    border: 1px solid black;
+}
+
+#upperPart {
+    background-color:rgba(54, 52, 52, 0.685);
+    width: 500px;
+    height:250px;
+}
+
+#lowerPart {
+    background-color:black;
+    width: 500px;
+    height:450px;
+    border-left: 5px;
+}
