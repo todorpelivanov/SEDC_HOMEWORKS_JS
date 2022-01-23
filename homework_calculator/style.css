@@ -1,4 +1,14 @@
+button {
+    color: white;
+    background-color: black;
+    width: 122px;
+    height: 89px;
+    font-size: 35px;
+}
 
+button:hover {
+ background-color: rgb(59, 59, 59);
+}
 
 #container {
     width: 500px;
@@ -18,4 +28,25 @@
     width: 500px;
     height:450px;
     border-left: 5px;
+}
+
+#upperPart1 {
+    background-color:rgba(32, 29, 29, 0.685);
+    width: 500px;
+    height:125px;
+}
+
+#upperPart1-1 {
+    font-family: "Helvetica Neue",Helvetica,Arial;
+    font-size: 20px;
+    color: white;
+}
+
+#upperPart2 {
+    text-align: right;
+    font-size: 100px;
+    color: white;
+    background-color:rgba(32, 29, 29, 0.685);
+    width: 500px;
+    height:125px;
 }
