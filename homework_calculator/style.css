@@ -42,6 +42,12 @@ button:hover {
     color: white;
 }
 
+#upperPart1-2 {
+    font-family: "Helvetica Neue",Helvetica,Arial;
+    font-size: 15px;
+    color: white;
+}
+
 #upperPart2 {
     text-align: right;
     font-size: 100px;
