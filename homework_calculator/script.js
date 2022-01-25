@@ -20,6 +20,7 @@ let numSeven = document.getElementById(`numberSeven`);
 let numEight = document.getElementById(`numberEight`);
 let numNine = document.getElementById(`numberNine`);
 let numZero = document.getElementById(`numberZero`);
+let sum = 0;
 
  numOne.addEventListener('click', function() {
 if(showResult.textContent === '0') {
@@ -101,11 +102,15 @@ dot.addEventListener('click', function() {
 })
 
 reset.addEventListener('click', function() {
+   sum = 0;
    return showResult.innerText = 0
+
 })
 
 negate.addEventListener('click', function() {
-   return showResult.innerText = parseInt(showResult.innerText) * -1
+   let helper = showResult.innerText;
+   let helper2 = '.' + helper.split('.').pop();
+   return showResult.innerText = parseInt(showResult.innerText) * -1 + helper2
 })
 
 backspace.addEventListener('click', function() {
@@ -114,3 +119,17 @@ backspace.addEventListener('click', function() {
       return showResult.innerText = helper.slice(0, -1)
    }
 })
+
+// add.addEventListener('click', function() {
+//    let helper = parseInt(showResult.innerText);
+//    console.log(helper);
+//    sum += helper;
+//    console.log(sum)
+//    showResult.innerText = sum;
+//    showResult.innerText = '';
+// })
+
+// calcResult.addEventListener('click', function() {
+//    showResult.innerText = sum;
+//    sum = 0;
+// })

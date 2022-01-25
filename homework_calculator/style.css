@@ -39,18 +39,22 @@ button:hover {
 #upperPart1-1 {
     font-family: "Helvetica Neue",Helvetica,Arial;
     font-size: 20px;
-    color: white;
+    color: rgb(97, 97, 96);
+    text-decoration:underline;
 }
 
 #upperPart1-2 {
+    padding-top:50px;
     font-family: "Helvetica Neue",Helvetica,Arial;
-    font-size: 15px;
+    font-size: 20px;
     color: white;
+    text-align: right;
+    height:50px;
 }
 
 #upperPart2 {
     text-align: right;
-    font-size: 80px;
+    font-size: 85px;
     color: white;
     background-color:rgba(32, 29, 29, 0.685);
     width: 500px;
