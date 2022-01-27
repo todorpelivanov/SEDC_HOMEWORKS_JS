@@ -10,6 +10,13 @@ button:hover {
  background-color: rgb(59, 59, 59);
 }
 
+#changeTheme {
+    float: right;
+    height: 20px;
+    width: 120px;
+    font-size:10px
+}
+
 #mainContainer {
     width: 520px;
     height: 710px;
@@ -34,7 +41,6 @@ button:hover {
     background-color:black;
     width: 500px;
     height:450px;
-    border-left: 5px;
 }
 
 #upperPart1 {
