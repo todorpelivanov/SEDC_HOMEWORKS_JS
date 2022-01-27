@@ -1,10 +1,11 @@
 let showResult = document.getElementById('upperPart2');
-console.log(showResult.textContent)
+let saveResult = document.getElementById('upperPart1-2');
 let add = document.getElementById(`add`);
 let sustract = document.getElementById(`sustract`);
 let multiply = document.getElementById(`multiply`);
 let divide = document.getElementById(`divide`);
 let backspace = document.getElementById(`bck`);
+let hardReset = document.getElementById(`hardReset`);
 let reset = document.getElementById(`reset`);
 let percentage = document.getElementById(`percentage`);
 let negate = document.getElementById(`negate`);
@@ -21,6 +22,7 @@ let numEight = document.getElementById(`numberEight`);
 let numNine = document.getElementById(`numberNine`);
 let numZero = document.getElementById(`numberZero`);
 let sum = 0;
+let previousEvent = ''
 
  numOne.addEventListener('click', function() {
 if(showResult.textContent === '0') {
@@ -101,16 +103,32 @@ dot.addEventListener('click', function() {
    }
 })
 
-reset.addEventListener('click', function() {
+hardReset.addEventListener('click', function() {
    sum = 0;
+   saveResult.innerText = sum;
+   previousEvent = ''
    return showResult.innerText = 0
+})
 
+reset.addEventListener('click', function() {
+   return showResult.innerText = 0
 })
 
 negate.addEventListener('click', function() {
-   let helper = showResult.innerText;
-   let helper2 = '.' + helper.split('.').pop();
-   return showResult.innerText = parseInt(showResult.innerText) * -1 + helper2
+   let dot = '.'
+   if(showResult.innerText === '') {
+      return
+   } else {
+      if(!showResult.innerText.includes(dot)) {
+         showResult.innerText *= -1
+      } else {
+         let helper = showResult.innerText;
+         console.log(helper)
+         let helper2 = '.' + helper.split('.').pop();
+         console.log(helper2)
+         return showResult.innerText = parseInt(showResult.innerText) * -1 + helper2
+      }
+   }
 })
 
 backspace.addEventListener('click', function() {
@@ -120,16 +138,110 @@ backspace.addEventListener('click', function() {
    }
 })
 
-// add.addEventListener('click', function() {
-//    let helper = parseInt(showResult.innerText);
-//    console.log(helper);
-//    sum += helper;
-//    console.log(sum)
-//    showResult.innerText = sum;
-//    showResult.innerText = '';
-// })
+add.addEventListener('click', function() {
+   previousEvent = '-'
+   if(showResult.innerText === '') {
+      return
+   } else {
+      if(saveResult.innerText === '0') {
+         saveResult.innerText = showResult.innerText
+         sum = saveResult.innerText
+         showResult.innerText = 0;
+      } else {
+         let helper = parseFloat(showResult.innerText);
+         let helper2 = sum
+         console.log(helper);
+         sum = parseFloat(helper2) + parseFloat(helper);
+         console.log(sum)
+         showResult.innerText = sum;
+         showResult.innerText = '';
+         saveResult.innerText = sum;
+      }
+   }
+})
 
-// calcResult.addEventListener('click', function() {
-//    showResult.innerText = sum;
-//    sum = 0;
-// })
+sustract.addEventListener('click', function() {
+   previousEvent = '-'
+   if(showResult.innerText === '') {
+      return
+   } else {
+      if(saveResult.innerText === '0') {
+         saveResult.innerText = showResult.innerText
+         sum = saveResult.innerText
+         showResult.innerText = 0;
+      } else {
+         let helper = parseFloat(showResult.innerText);
+         let helper2 = sum
+         console.log(helper);
+         sum = helper2 - helper;
+         console.log(sum)
+         showResult.innerText = sum;
+         showResult.innerText = '';
+         saveResult.innerText = sum;
+      }
+   }
+})
+
+multiply.addEventListener('click', function() {
+   previousEvent = '*'
+   if(showResult.innerText === '' ) {
+      return
+   } else {
+      if(saveResult.innerText === '0') {
+         saveResult.innerText = showResult.innerText
+         sum = saveResult.innerText
+         showResult.innerText = 0;
+      } else {
+         let helper = parseFloat(showResult.innerText);
+         console.log(helper);
+         let multiplyResult = parseFloat(sum) * helper;
+         sum = multiplyResult;
+         console.log(sum)
+         showResult.innerText = sum;
+         showResult.innerText = '';
+         saveResult.innerText = multiplyResult;
+      }
+   }
+})
+
+divide.addEventListener('click', function() {
+   previousEvent = '/'
+   if(showResult.innerText === '' ) {
+      return
+   } else {
+      if(saveResult.innerText === '0') {
+         saveResult.innerText = showResult.innerText
+         sum = saveResult.innerText
+         showResult.innerText = 0;
+      } else {
+         let helper = parseFloat(showResult.innerText);
+         console.log(helper);
+         let multiplyResult = parseFloat(sum) / parseFloat(helper);
+         sum = multiplyResult;
+         console.log(sum)
+         showResult.innerText = sum;
+         showResult.innerText = '';
+         saveResult.innerText = multiplyResult;
+      }
+   }
+})
+
+calcResult.addEventListener('click', function() {
+   if(previousEvent === '+') {
+      saveResult.innerText = parseFloat(sum) + parseFloat(showResult.innerText);
+      showResult.innerText = 0
+      sum = parseFloat(saveResult.innerText)
+   } else if(previousEvent === '-') {
+      saveResult.innerText = parseFloat(sum) - parseFloat(showResult.innerText);
+      showResult.innerText = 0
+      sum = parseFloat(saveResult.innerText)
+   } else if(previousEvent === '*') {
+      saveResult.innerText = parseFloat(sum) * parseFloat(showResult.innerText);
+      showResult.innerText = 0
+      sum = parseFloat(saveResult.innerText)
+   } else if(previousEvent === '/') {
+      saveResult.innerText = parseFloat(sum) / parseFloat(showResult.innerText);
+      showResult.innerText = 0
+      sum = parseFloat(saveResult.innerText)
+   }
+})
