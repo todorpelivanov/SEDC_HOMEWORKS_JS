@@ -1,5 +1,6 @@
 let showResult = document.getElementById("upperPart2");
 let saveResult = document.getElementById("upperPart1-2");
+let equasion = document.getElementById("upperPart1-3");
 let add = document.getElementById(`add`);
 let sustract = document.getElementById(`sustract`);
 let multiply = document.getElementById(`multiply`);
@@ -118,6 +119,7 @@ hardReset.addEventListener("click", function () {
    sum = 0;
    saveResult.innerText = sum;
    previousEvent = "";
+   equasion.innerText = '';
    return (showResult.innerText = 0);
 });
 
@@ -151,21 +153,21 @@ backspace.addEventListener("click", function () {
 });
 
 add.addEventListener("click", function () {
-   previousEvent = "-";
+   previousEvent = "+";
    if (showResult.innerText === "") {
       return;
    } else {
-      if (saveResult.innerText === "0") {
+      if (saveResult.innerText === "0" && equasion.innerText === '') {
          saveResult.innerText = showResult.innerText;
          sum = saveResult.innerText;
          showResult.innerText = 0;
+         equasion.innerText += saveResult.innerText;
       } else {
          let helper = parseFloat(showResult.innerText);
          let helper2 = sum;
-         console.log(helper);
          sum = parseFloat(helper2) + parseFloat(helper);
-         console.log(sum);
          showResult.innerText = sum;
+         equasion.innerText += ' + ' + helper;
          showResult.innerText = "";
          saveResult.innerText = sum;
       }
@@ -177,16 +179,16 @@ sustract.addEventListener("click", function () {
    if (showResult.innerText === "") {
       return;
    } else {
-      if (saveResult.innerText === "0") {
+      if (saveResult.innerText === "0" && equasion.innerText === '') {
          saveResult.innerText = showResult.innerText;
          sum = saveResult.innerText;
          showResult.innerText = 0;
+         equasion.innerText += saveResult.innerText;
       } else {
          let helper = parseFloat(showResult.innerText);
          let helper2 = sum;
-         console.log(helper);
+         equasion.innerText += ' - ' + helper;
          sum = helper2 - helper;
-         console.log(sum);
          showResult.innerText = sum;
          showResult.innerText = "";
          saveResult.innerText = sum;
@@ -199,16 +201,16 @@ multiply.addEventListener("click", function () {
    if (showResult.innerText === "") {
       return;
    } else {
-      if (saveResult.innerText === "0") {
+      if (saveResult.innerText === "0" && equasion.innerText === '') {
          saveResult.innerText = showResult.innerText;
          sum = saveResult.innerText;
          showResult.innerText = 0;
+         equasion.innerText += saveResult.innerText;
       } else {
          let helper = parseFloat(showResult.innerText);
-         console.log(helper);
          let multiplyResult = parseFloat(sum) * helper;
          sum = multiplyResult;
-         console.log(sum);
+         equasion.innerText += ' * ' + helper;
          showResult.innerText = sum;
          showResult.innerText = "";
          saveResult.innerText = multiplyResult;
@@ -221,16 +223,16 @@ divide.addEventListener("click", function () {
    if (showResult.innerText === "") {
       return;
    } else {
-      if (saveResult.innerText === "0") {
+      if (saveResult.innerText === "0" && equasion.innerText === '') {
          saveResult.innerText = showResult.innerText;
          sum = saveResult.innerText;
          showResult.innerText = 0;
+         equasion.innerText += saveResult.innerText;
       } else {
          let helper = parseFloat(showResult.innerText);
-         console.log(helper);
          let multiplyResult = parseFloat(sum) / parseFloat(helper);
          sum = multiplyResult;
-         console.log(sum);
+         equasion.innerText += ' / ' + helper;
          showResult.innerText = sum;
          showResult.innerText = "";
          saveResult.innerText = multiplyResult;
@@ -241,30 +243,52 @@ divide.addEventListener("click", function () {
 calcResult.addEventListener("click", function () {
    if (previousEvent === "+") {
       saveResult.innerText = parseFloat(sum) + parseFloat(showResult.innerText);
+      equasion.innerText += ' + ' + showResult.innerText + ' = ' + saveResult.innerText; 
       showResult.innerText = 0;
       sum = parseFloat(saveResult.innerText);
    } else if (previousEvent === "-") {
       saveResult.innerText = parseFloat(sum) - parseFloat(showResult.innerText);
+      equasion.innerText += ' - ' + showResult.innerText + ' = ' + saveResult.innerText;
       showResult.innerText = 0;
       sum = parseFloat(saveResult.innerText);
    } else if (previousEvent === "*") {
       saveResult.innerText = parseFloat(sum) * parseFloat(showResult.innerText);
+      equasion.innerText += ' * ' + showResult.innerText + ' = ' + saveResult.innerText;
       showResult.innerText = 0;
       sum = parseFloat(saveResult.innerText);
    } else if (previousEvent === "/") {
       saveResult.innerText = parseFloat(sum) / parseFloat(showResult.innerText);
+      equasion.innerText += ' / ' + showResult.innerText + ' = ' + saveResult.innerText;
       showResult.innerText = 0;
       sum = parseFloat(saveResult.innerText);
    }
 });
 
-changeTheme.addEventListener('click', function () {
-   for (let button of allButtons) {
-      button.style.color = 'white';
-      button.style.backgroundColor = 'red';
+let changeCalcTheme = true;
+changeTheme.addEventListener('click', function() {
+   if(changeCalcTheme === true) {
+      changeCalcTheme = false;
+      for (let button of allButtons) {
+         button.style.color = 'red';
+         button.style.backgroundColor = 'darkGreen';
+      }
+      showResult.style.backgroundColor = 'green';
+      showResult.style.color = 'yellow'
+      saveResult.style.backgroundColor = 'yellow';
+      saveResult.style.color = 'green';
+      equasion.style.backgroundColor = 'darkGreen';
+      equasion.style.color = 'yellow';
+   } else {
+      changeCalcTheme = true;
+      for (let button of allButtons) {
+         button.style.color = 'white';
+         button.style.backgroundColor = 'black';
+      }
+      showResult.style.backgroundColor = 'black';
+      showResult.style.color = 'white'
+      saveResult.style.backgroundColor = 'black';
+      saveResult.style.color = 'white';
+      equasion.style.backgroundColor = 'black';
+      equasion.style.color = 'white';
    }
-   showResult.style.backgroundColor = 'green';
-   showResult.style.color = 'black';
-   saveResult.style.backgroundColor = 'yellow';
-   saveResult.style.color = 'black';
 });
